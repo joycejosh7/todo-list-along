@@ -1,5 +1,6 @@
 import React from 'react'
 import Item from './Item'
+import ItemForm from './ItemForm'
 
 class List extends React.Component {
 
@@ -11,12 +12,8 @@ class List extends React.Component {
         this.updateState = this.updateState.bind(this)
     }
 
-    // static defaultProps = {
-    //     groceryList: []
-    // }
 
     updateState(arg) {
-        // this.setState({groceryList: [...this.state.groceryList, "cereal"]})
         this.setState((prevState, prevProps) => { 
             return {groceryList: [...prevState.groceryList, arg]}
         })
@@ -25,9 +22,9 @@ class List extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.updateState}>Click to Update State</button>
+                <ItemForm sendData={this.updateState}/>
                 <ul>
-                    {this.state.groceryList.map((item, i) => <Item key={i} item={item} i={i} callBackFn={this.updateState}/>)}
+                    {this.state.groceryList.map((item, i) => <Item key={i} item={item} i={i} />)}
                 </ul>
             </div>
         
