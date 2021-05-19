@@ -8,8 +8,8 @@ class App extends React.Component {
 
     return (
       <div>
-        <h1 className="greeting">Hello, world!</h1>
-        <List name={"Bob"}/>
+        <button>Toggle Lists</button>
+        <List />
       </div>
     )
   }
